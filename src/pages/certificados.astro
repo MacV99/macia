@@ -8,9 +8,8 @@ import Card1 from "../components/Card1.astro";
   frase="Automatiza tus certificados. Fácil, rápido y seguro"
 >
   <section id="info" class="flex-c">
-    <div class="flex-r">
-      <a href="#demo" class="boton">DEMO</a>
-    </div>
+    <a href="#demo" class="boton">VER DEMO</a>
+
     <p>
       Olvídate de procesos manuales. Con nuestra solución, tus estudiantes o
       colaboradores podrán generar sus certificados en cualquier momento y
@@ -55,7 +54,7 @@ import Card1 from "../components/Card1.astro";
   </section>
 
   <!-- funcionamiento -->
-  <section class="flex-c">
+  <section class="flex-c" id="funcionamiento">
     <h2>¿CÓMO FUNCIONA?</h2>
     <ul class="flex-c">
       <li>📊 Carga los datos en una hoja de cálculo (nombres y cédulas).</li>
@@ -85,13 +84,14 @@ import Card1 from "../components/Card1.astro";
 </Layout1>
 
 <style>
-  #info div {
-    gap: 20px;
-    text-align: center;
+  #info,
+  #funcionamiento {
+    background-color: #fff;
   }
 
   #info p {
     text-align: center;
+    max-width: 600px;
   }
 
   a.boton {

@@ -90,6 +90,11 @@ footer {
   gap: 18px;
 }
 
+section>*,
+footer>* {
+  max-width: 1200px;
+}
+
 a.boton {
   padding: 20px 50px;
   border-radius: 2px;
