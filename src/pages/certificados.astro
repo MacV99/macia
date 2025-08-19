@@ -1,0 +1,265 @@
+---
+import Layout1 from "../layouts/Layout1.astro";
+import Card1 from "../components/Card1.astro";
+---
+
+<Layout1
+  title="Certificados"
+  frase="Automatiza tus certificados. Fácil, rápido y seguro"
+>
+  <section id="info" class="flex-c">
+    <div class="flex-r">
+      <a href="#demo" class="boton">DEMO</a>
+    </div>
+    <p>
+      Olvídate de procesos manuales. Con nuestra solución, tus estudiantes o
+      colaboradores podrán generar sus certificados en cualquier momento y
+      lugar.
+    </p>
+  </section>
+
+  <!-- beneficios -->
+  <section class="flex-c">
+    <h2>BENEFICIOS</h2>
+    <div class="flex-r">
+      <Card1
+        iconClass="bi bi-clock"
+        title="Ahorra tiempo"
+        description="Olvida procesos manuales y errores en los certificados"
+      />
+
+      <Card1
+        iconClass="bi bi-geo-alt"
+        title="Acceso inmediato"
+        description="Los estudiantes generan sus certificados en segundos desde cualquier lugar."
+      />
+
+      <Card1
+        iconClass="bi bi-database-add"
+        title="Simple de administrar"
+        description="Solo necesitas una hoja de cálculo como base de datos."
+      />
+
+      <Card1
+        iconClass="bi bi-gear"
+        title="Automático y preciso"
+        description="La información se refleja directamente en cada certificado."
+      />
+
+      <Card1
+        iconClass="bi bi-graph-up-arrow"
+        title="Escalable y seguro"
+        description="Funciona igual si tienes 50 o 5,000 estudiantes."
+      />
+    </div>
+  </section>
+
+  <!-- funcionamiento -->
+  <section class="flex-c">
+    <h2>¿CÓMO FUNCIONA?</h2>
+    <ul class="flex-c">
+      <li>📊 Carga los datos en una hoja de cálculo (nombres y cédulas).</li>
+      <li>🖥️ Conecta la hoja con nuestra plataforma.</li>
+      <li>🎓 El estudiante ingresa su cédula en tu página de certificados.</li>
+      <li>📥 Descarga inmediata: obtiene su certificado al instante.</li>
+    </ul>
+  </section>
+
+  <!-- demo -->
+  <section id="demo" class="flex-c">
+    <h2>DEMO</h2>
+    <div>
+      <h3>OBTÉN AQUÍ TU CERTIFICADO</h3>
+      <input type="text" id="cedula" placeholder="Ingresa tu cédula" />
+      <div class="flex-r">
+        <button id="btn-generar">Descargar Certificado</button>
+        <a
+          href="https://docs.google.com/spreadsheets/d/1SR8shEYKuwRIfWdCKFVSglCpm1IKzxQuiq7IRJ7tpPM/edit?gid=0#gid=0"
+          target="_blank"><img src="img/google_sheets.png" alt="" /></a
+        >
+      </div>
+      <canvas id="certCanvas" width="1280" height="989" style="display:none;"
+      ></canvas>
+    </div>
+  </section>
+</Layout1>
+
+<style>
+  #info div {
+    gap: 20px;
+    text-align: center;
+  }
+
+  #info p {
+    text-align: center;
+  }
+
+  a.boton {
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    width: auto;
+    font-size: 14px;
+  }
+
+  #demo {
+    background-image: url("/img/hero-bg.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: color;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    color: var(--clr-white);
+    padding: 80px 20px;
+  }
+
+  #demo h2 {
+    border-color: var(--clr-white);
+  }
+
+  #demo > div {
+    max-width: 900px;
+    border: solid 1px var(--clr-white);
+    border-radius: 2px;
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+  }
+
+  #demo > div h3 {
+    letter-spacing: 8px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+  }
+
+  #demo > div div {
+    position: relative;
+  }
+
+  #demo > div a {
+    height: 40px;
+    width: auto;
+    right: 0px;
+    position: absolute;
+  }
+
+  #demo > div img {
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  #demo button {
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    border: solid 1px var(--clr-white);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 40px;
+  }
+
+  #demo input {
+    padding: 10px 15px;
+    width: 300px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  ul {
+    gap: 10px;
+    text-align: center;
+  }
+</style>
+
+<script is:inline>
+  const SHEET_URL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGbdgpqn5z5DHoG_UPH0OTWHT4Bc3Nf6yp2QqcxSv0va44lhgnSGUzO2SaYJ5P_iPUrBPPo3s_5ylA/pub?output=csv"; // reemplaza aquí
+  const PLANTILLA_SRC = "img/certificado.jpg";
+  const X_NOMBRE = 640;
+  const Y_NOMBRE = 360;
+  const FONT_SIZE_NOMBRE = 48;
+
+  function parseCSV(csvText) {
+    const lines = csvText.trim().split("\n");
+    const headers = lines[0].split(",").map((h) => h.trim().toLowerCase());
+    const rows = lines.slice(1).map((line) => {
+      const cols = line.split(",").map((c) => c.trim().replace(/^"|"$/g, ""));
+      const obj = {};
+      headers.forEach((h, i) => (obj[h] = cols[i] ?? ""));
+      return obj;
+    });
+    return { headers, rows };
+  }
+
+  async function buscarPorCedula(cedula) {
+    const url = `${SHEET_URL}&rand=${Date.now()}`;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const csv = await res.text();
+
+    const { headers, rows } = parseCSV(csv);
+    if (!headers.includes("cedula") || !headers.includes("nombre")) {
+      throw new Error("El CSV debe tener columnas 'cedula' y 'nombre'.");
+    }
+
+    const buscada = String(cedula).trim().toLowerCase();
+    for (const r of rows) {
+      if (String(r["cedula"] || "").toLowerCase() === buscada) {
+        return { cedula: r["cedula"], nombre: r["nombre"] };
+      }
+    }
+    return null;
+  }
+
+  function generarCertificado({ nombre }) {
+    const canvas = document.getElementById("certCanvas");
+    const ctx = canvas.getContext("2d");
+    const fondo = new Image();
+    fondo.crossOrigin = "anonymous";
+    fondo.src = PLANTILLA_SRC;
+
+    fondo.onload = function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.font = `bold ${FONT_SIZE_NOMBRE}px Arial`;
+      ctx.fillText(String(nombre || "").toUpperCase(), X_NOMBRE, Y_NOMBRE);
+
+      const link = document.createElement("a");
+      link.download = `certificado_${(nombre || "").replace(/\s+/g, "_")}.jpg`;
+      link.href = canvas.toDataURL("image/jpeg", 1.0);
+      link.click();
+    };
+  }
+
+  async function onGenerar() {
+    const cedula = document.getElementById("cedula").value.trim();
+    if (!cedula) return alert("Escribe tu cédula.");
+
+    try {
+      const datos = await buscarPorCedula(cedula);
+      if (!datos)
+        return alert("❌ No se encontró la cédula en la base de datos.");
+      generarCertificado(datos);
+    } catch (err) {
+      console.error(err);
+      alert("Error consultando la hoja. Intenta de nuevo.");
+    } finally {
+      document.getElementById("btn-generar").disabled = false;
+      document.getElementById("btn-generar").textContent =
+        "Descargar Certificado";
+    }
+  }
+
+  document.getElementById("btn-generar")?.addEventListener("click", onGenerar);
+  document.getElementById("cedula")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") onGenerar();
+  });
+</script>
