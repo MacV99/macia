@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import FooterIndex from "../components/Footerindex.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -18,6 +18,12 @@ import FooterIndex from "../components/Footerindex.astro";
   </head>
   <body>
     <slot />
-    <FooterIndex />
+    <Footer />
   </body>
 </html>
+
+<style>
+  @view-transition {
+    navigation: auto; /* enabled! */
+  }
+</style>
