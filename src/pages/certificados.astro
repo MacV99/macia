@@ -180,10 +180,25 @@ import Card1 from "../components/Card1.astro";
   const SHEET_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGbdgpqn5z5DHoG_UPH0OTWHT4Bc3Nf6yp2QqcxSv0va44lhgnSGUzO2SaYJ5P_iPUrBPPo3s_5ylA/pub?output=csv"; // reemplaza aquí
   const PLANTILLA_SRC = "../img/certificado.jpg";
-  const X_NOMBRE = 640;
-  const Y_NOMBRE = 360;
-  const FONT_SIZE_NOMBRE = 48;
 
+  // Coordenadas del texto
+  const X_NOMBRE = 447;
+  const Y_NOMBRE = 358;
+  const FONT_SIZE_NOMBRE = 24;
+
+  const X_CIUDAD = 320;
+  const Y_CIUDAD = 615;
+  const FONT_SIZE_CIUDAD = 17;
+
+  const X_FECHA = 585;
+  const Y_FECHA = 615;
+  const FONT_SIZE_FECHA = 18;
+
+  const X_CEDULA = 605;
+  const Y_CEDULA = 386;
+  const FONT_SIZE_CEDULA = 17;
+
+  // --- FUNCIONES ---
   function parseCSV(csvText) {
     const lines = csvText.trim().split("\n");
     const headers = lines[0].split(",").map((h) => h.trim().toLowerCase());
@@ -203,20 +218,27 @@ import Card1 from "../components/Card1.astro";
     const csv = await res.text();
 
     const { headers, rows } = parseCSV(csv);
-    if (!headers.includes("cedula") || !headers.includes("nombre")) {
-      throw new Error("El CSV debe tener columnas 'cedula' y 'nombre'.");
+    const campos = ["cedula", "nombre", "ciudad", "fecha"];
+    for (const campo of campos) {
+      if (!headers.includes(campo))
+        throw new Error(`El CSV debe tener la columna '${campo}'.`);
     }
 
     const buscada = String(cedula).trim().toLowerCase();
     for (const r of rows) {
       if (String(r["cedula"] || "").toLowerCase() === buscada) {
-        return { cedula: r["cedula"], nombre: r["nombre"] };
+        return {
+          cedula: r["cedula"],
+          nombre: r["nombre"],
+          ciudad: r["ciudad"],
+          fecha: r["fecha"],
+        };
       }
     }
     return null;
   }
 
-  function generarCertificado({ nombre }) {
+  function generarCertificado({ nombre, cedula, ciudad, fecha }) {
     const canvas = document.getElementById("certCanvas");
     const ctx = canvas.getContext("2d");
     const fondo = new Image();
@@ -229,8 +251,22 @@ import Card1 from "../components/Card1.astro";
 
       ctx.fillStyle = "#000";
       ctx.textAlign = "center";
+
+      // Nombre
       ctx.font = `bold ${FONT_SIZE_NOMBRE}px Arial`;
       ctx.fillText(String(nombre || "").toUpperCase(), X_NOMBRE, Y_NOMBRE);
+
+      // Cédula
+      ctx.font = `${FONT_SIZE_CEDULA}px Arial`;
+      ctx.fillText(String(cedula || ""), X_CEDULA, Y_CEDULA);
+
+      // Ciudad
+      ctx.font = `${FONT_SIZE_CIUDAD}px Arial`;
+      ctx.fillText(String(ciudad || "").toUpperCase(), X_CIUDAD, Y_CIUDAD);
+
+      // Fecha
+      ctx.font = `${FONT_SIZE_FECHA}px Arial`;
+      ctx.fillText(String(fecha || ""), X_FECHA, Y_FECHA);
 
       const link = document.createElement("a");
       link.download = `certificado_${(nombre || "").replace(/\s+/g, "_")}.jpg`;
@@ -240,8 +276,16 @@ import Card1 from "../components/Card1.astro";
   }
 
   async function onGenerar() {
+    const btn = document.getElementById("btn-generar");
+    btn.disabled = true;
+    btn.textContent = "Generando...";
+
     const cedula = document.getElementById("cedula").value.trim();
-    if (!cedula) return alert("Escribe tu cédula.");
+    if (!cedula) {
+      btn.disabled = false;
+      btn.textContent = "Descargar Certificado";
+      return alert("Escribe tu cédula.");
+    }
 
     try {
       const datos = await buscarPorCedula(cedula);
@@ -252,9 +296,8 @@ import Card1 from "../components/Card1.astro";
       console.error(err);
       alert("Error consultando la hoja. Intenta de nuevo.");
     } finally {
-      document.getElementById("btn-generar").disabled = false;
-      document.getElementById("btn-generar").textContent =
-        "Descargar Certificado";
+      btn.disabled = false;
+      btn.textContent = "Descargar Certificado";
     }
   }
 
