@@ -1,0 +1,283 @@
+---
+import Layout1 from "../layouts/Layout1.astro";
+import Card1 from "../components/Card1.astro";
+---
+
+<Layout1
+  title="Sitios Web Profesionales"
+  frase="Convierte tu marca en una presencia digital que vende, inspira y funciona"
+>
+  <!-- HERO / INFO -->
+  <section id="info" class="flex-c">
+    <a href="#contacto" class="boton">QUIERO MI SITIO WEB</a>
+
+    <p>
+      Desarrollamos sitios web rápidos, modernos y optimizados para negocio:
+      empresas, profesionales y tiendas. Integramos WhatsApp, pagos, analítica y
+      automatizaciones para que tu web trabaje por ti las 24/7.
+    </p>
+  </section>
+
+  <!-- PORTAFOLIO (PRUEBA SOCIAL) -->
+  <section class="flex-c" id="portafolio">
+    <h2>CASOS REALES</h2>
+    <div class="grid-portfolio">
+      <a
+        class="item"
+        href="https://www.jdtcapacitaciones.co/"
+        target="_blank"
+        rel="noopener"
+      >
+        <h3>JDT Capacitaciones</h3>
+        <p>
+          Empresa dedicada a la formación técnica y profesional, especializada
+          en cursos presenciales y virtuales.
+        </p>
+        <span class="link">Ver sitio web ↗</span>
+      </a>
+
+      <a
+        class="item"
+        href="https://www.boliglobos.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <h3>Boliglobos latino</h3>
+        <p>
+          marca enfocada en el mundo de la decoración profesional con globos
+        </p>
+        <span class="link">Ver sitio web ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="flex-c" id="beneficios">
+    <h2>BENEFICIOS</h2>
+    <div class="flex-r">
+      <Card1
+        iconClass="bi bi-lightning-charge"
+        title="Carga ultra-rápida"
+        description="Mejor experiencia, más tiempo en tu web y mayor conversión."
+      />
+      <Card1
+        iconClass="bi bi-shield-check"
+        title="Seguro y confiable"
+        description="Buenas prácticas, HTTPS, formularios protegidos y backups."
+      />
+      <Card1
+        iconClass="bi bi-phone"
+        title="Responsive total"
+        description="Se ve perfecto en celulares, tablets y escritorio."
+      />
+      <Card1
+        iconClass="bi bi-graph-up-arrow"
+        title="SEO listo"
+        description="Estructura optimizada, metadatos y analítica desde el día 1."
+      />
+      <Card1
+        iconClass="bi bi-whatsapp"
+        title="Integraciones reales"
+        description="WhatsApp, CRM, pagos, certificados, automatizaciones y más."
+      />
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+</Layout1>
+
+<style>
+  /* Secciones claras como tu página de certificados */
+  #info,
+  #proceso {
+    background-color: #fff;
+  }
+
+  #info p {
+    text-align: center;
+    max-width: 700px;
+  }
+
+  a.boton {
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    width: auto;
+    font-size: 14px;
+  }
+  a.boton.secundario {
+    background-color: transparent;
+    color: var(--clr-dark);
+    border: 1px solid var(--clr-dark);
+  }
+
+  /* Portafolio */
+  #portafolio {
+    background: var(--clr-white);
+  }
+  .grid-portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 900px;
+  }
+  .grid-portfolio .item {
+    position: relative;
+    border: 1px solid #eaeaea;
+    padding: 18px;
+    border-radius: 4px;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .grid-portfolio .item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  .grid-portfolio .badge {
+    display: inline-block;
+    font-size: 12px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .grid-portfolio .item h3 {
+    margin: 4px 0 6px;
+  }
+  .grid-portfolio .item .link {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .nota {
+    margin-top: 10px;
+    opacity: 0.8;
+    font-size: 0.95rem;
+  }
+
+  /* Proceso / lista */
+  ul {
+    gap: 10px;
+    text-align: center;
+  }
+  ul b {
+    font-weight: 700;
+  }
+
+  /* Incluye */
+  #incluye .flex-r.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* Pricing */
+  #paquetes {
+    background: #fff;
+  }
+  .grid-pricing {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 980px;
+  }
+  .plan {
+    border: 1px solid #eaeaea;
+    background: #fff;
+    border-radius: 4px;
+    padding: 18px;
+    text-align: center;
+  }
+  .plan h3 {
+    margin-bottom: 6px;
+  }
+  .plan p {
+    margin: 6px 0 10px;
+  }
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+  .plan ul li {
+    margin: 4px 0;
+  }
+  .plan.destacado {
+    border: 1px solid var(--clr-dark);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Contacto */
+  .contacto {
+    background: var(--clr-white);
+  }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 720px;
+  }
+  .form input,
+  .form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+  .form textarea {
+    grid-column: 1 / -1;
+  }
+  .form .aviso {
+    grid-column: 1 / -1;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Responsivo */
+  @media (max-width: 860px) {
+    .grid-portfolio {
+      grid-template-columns: 1fr;
+    }
+    .grid-pricing {
+      grid-template-columns: 1fr;
+    }
+    .form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Si luego conectas a un backend/CRM, reemplaza este handler
+  document.getElementById("btn-enviar")?.addEventListener("click", () => {
+    const form = document.querySelector(".form");
+    const data = Object.fromEntries(new FormData(form).entries());
+    // Aquí puedes hacer fetch a tu API o abrir WhatsApp con un mensaje formateado.
+    const msg = encodeURIComponent(
+      `Hola, Miguel. Quiero un sitio web.\n\n` +
+        `Nombre: ${data.nombre || ""}\n` +
+        `Email: ${data.email || ""}\n` +
+        `WhatsApp: ${data.telefono || ""}\n` +
+        `Mensaje: ${data.mensaje || ""}`,
+    );
+    window.open(`https://wa.me/573000000000?text=${msg}`, "_blank");
+  });
+</script>

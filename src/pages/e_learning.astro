@@ -1,0 +1,275 @@
+---
+import Layout1 from "../layouts/Layout1.astro";
+import Card1 from "../components/Card1.astro";
+---
+
+<Layout1
+  title="E-learning a tu medida"
+  frase="Convierte tu conocimiento en cursos rentables con un campus online moderno y escalable"
+>
+  <!-- HERO / INFO -->
+  <section id="info" class="flex-c">
+    <a href="#contacto" class="boton">QUIERO MI CAMPUS</a>
+
+    <p>
+      Diseñamos e implementamos plataformas de e-learning enfocadas en
+      resultados: cursos en video, evaluaciones, progreso, certificados
+      automáticos, pasarelas de pago, integraciones con WhatsApp y CRM. Todo
+      listo para vender y escalar.
+    </p>
+  </section>
+
+  <!-- PORTAFOLIO (PRUEBA SOCIAL) -->
+
+  <!-- BENEFICIOS -->
+  <section class="flex-c" id="beneficios">
+    <h2>BENEFICIOS</h2>
+    <div class="flex-r">
+      <Card1
+        iconClass="bi bi-collection-play"
+        title="Cursos en video"
+        description="Lecciones, módulos y recursos descargables en una sola plataforma."
+      />
+      <Card1
+        iconClass="bi bi-check2-circle"
+        title="Evaluaciones y progreso"
+        description="Cuestionarios, intentos, notas y avance visible por estudiante."
+      />
+      <Card1
+        iconClass="bi bi-award"
+        title="Certificados automáticos"
+        description="Emisión inmediata al aprobar, con datos personalizados."
+      />
+      <Card1
+        iconClass="bi bi-credit-card"
+        title="Ventas y pagos"
+        description="Pasarelas de pago, cupones y acceso automático tras comprar."
+      />
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS / QUÉ INCLUYE -->
+  <section class="flex-c" id="incluye">
+    <h2>¿QUÉ INCLUYE TU CAMPUS?</h2>
+    <div class="flex-r wrap">
+      <Card1
+        iconClass="bi bi-shield-lock"
+        title="Acceso seguro"
+        description="Login, recuperación de cuenta y protección de contenidos."
+      />
+      <Card1
+        iconClass="bi bi-phone"
+        title="100% responsive"
+        description="Se ve perfecto en celular, tablet y escritorio."
+      />
+      <Card1
+        iconClass="bi bi-sliders"
+        title="Panel fácil"
+        description="Gestiona cursos, lecciones, preguntas y matrículas sin complicarte."
+      />
+      <Card1
+        iconClass="bi bi-chat-dots"
+        title="Integración WhatsApp"
+        description="Contacto directo para soporte y ventas."
+      />
+      <Card1
+        iconClass="bi bi-search"
+        title="SEO y Open Graph"
+        description="Metadatos, sitemap y estructura amigable a buscadores."
+      />
+      <Card1
+        iconClass="bi bi-hdd-network"
+        title="Automatizaciones"
+        description="Emails de bienvenida, recordatorios y finalización."
+      />
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+</Layout1>
+
+<style>
+  /* Secciones claras como tu página de certificados */
+  #info,
+  #proceso {
+    background-color: #fff;
+  }
+
+  #info p {
+    text-align: center;
+    max-width: 700px;
+  }
+
+  a.boton {
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    width: auto;
+    font-size: 14px;
+  }
+  a.boton.secundario {
+    background-color: transparent;
+    color: var(--clr-dark);
+    border: 1px solid var(--clr-dark);
+  }
+
+  /* Portafolio */
+  #portafolio {
+    background: var(--clr-white);
+  }
+  .grid-portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 900px;
+  }
+  .grid-portfolio .item {
+    position: relative;
+    border: 1px solid #eaeaea;
+    padding: 18px;
+    border-radius: 4px;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .grid-portfolio .item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  .grid-portfolio .item h3 {
+    margin: 4px 0 6px;
+  }
+  .grid-portfolio .item .link {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .nota {
+    margin-top: 10px;
+    opacity: 0.8;
+    font-size: 0.95rem;
+  }
+
+  /* Proceso / lista */
+  ul {
+    gap: 10px;
+    text-align: center;
+  }
+  ul b {
+    font-weight: 700;
+  }
+
+  /* Incluye */
+  #incluye .flex-r.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* Pricing */
+  #paquetes {
+    background: #fff;
+  }
+  .grid-pricing {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 980px;
+  }
+  .plan {
+    border: 1px solid #eaeaea;
+    background: #fff;
+    border-radius: 4px;
+    padding: 18px;
+    text-align: center;
+  }
+  .plan h3 {
+    margin-bottom: 6px;
+  }
+  .plan p {
+    margin: 6px 0 10px;
+  }
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+  .plan ul li {
+    margin: 4px 0;
+  }
+  .plan.destacado {
+    border: 1px solid var(--clr-dark);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Contacto */
+  .contacto {
+    background: var(--clr-white);
+  }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 720px;
+  }
+  .form input,
+  .form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+  .form textarea {
+    grid-column: 1 / -1;
+  }
+  .form .aviso {
+    grid-column: 1 / -1;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Responsivo */
+  @media (max-width: 860px) {
+    .grid-portfolio {
+      grid-template-columns: 1fr;
+    }
+    .grid-pricing {
+      grid-template-columns: 1fr;
+    }
+    .form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Handler simple para abrir WhatsApp con los datos del formulario
+  document.getElementById("btn-enviar")?.addEventListener("click", () => {
+    const form = document.querySelector(".form");
+    const data = Object.fromEntries(new FormData(form).entries());
+    const msg = encodeURIComponent(
+      `Hola, Miguel. Quiero lanzar un campus e-learning.\n\n` +
+        `Nombre: ${data.nombre || ""}\n` +
+        `Email: ${data.email || ""}\n` +
+        `WhatsApp: ${data.telefono || ""}\n` +
+        `Qué necesito: ${data.mensaje || ""}`,
+    );
+    window.open(`https://wa.me/573000000000?text=${msg}`, "_blank");
+  });
+</script>
