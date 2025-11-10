@@ -9,7 +9,9 @@ import Card1 from "../components/Card1.astro";
 >
   <!-- HERO / INFO -->
   <section id="info" class="flex-c">
-    <a href="#contacto" class="boton">QUIERO MI SITIO WEB</a>
+    <a href="https://tinyurl.com/contacto-macia" target="_blank" class="boton"
+      >QUIERO MI SITIO WEB</a
+    >
 
     <p>
       Desarrollamos sitios web rápidos, modernos y optimizados para negocio:
@@ -264,20 +266,3 @@ import Card1 from "../components/Card1.astro";
     }
   }
 </style>
-
-<script is:inline>
-  // Si luego conectas a un backend/CRM, reemplaza este handler
-  document.getElementById("btn-enviar")?.addEventListener("click", () => {
-    const form = document.querySelector(".form");
-    const data = Object.fromEntries(new FormData(form).entries());
-    // Aquí puedes hacer fetch a tu API o abrir WhatsApp con un mensaje formateado.
-    const msg = encodeURIComponent(
-      `Hola, Miguel. Quiero un sitio web.\n\n` +
-        `Nombre: ${data.nombre || ""}\n` +
-        `Email: ${data.email || ""}\n` +
-        `WhatsApp: ${data.telefono || ""}\n` +
-        `Mensaje: ${data.mensaje || ""}`,
-    );
-    window.open(`https://wa.me/573000000000?text=${msg}`, "_blank");
-  });
-</script>
