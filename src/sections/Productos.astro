@@ -32,30 +32,37 @@
   .cards {
     flex-wrap: wrap;
     gap: 30px;
+    align-items: stretch;
   }
 
   .card {
-    background-color: var(--clr-dark);
-    color: var(--clr-white);
+    background-color: var(--clr-white);
+    color: var(--clr-dark);
     padding: 40px 30px;
     border-radius: 2px;
     max-width: 310px;
-    height: 380px;
+    border: solid 1px #ddd;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
   }
 
   .cards p {
-    color: var(--clr-white);
+    color: var(--clr-gray);
     text-align: justify;
     margin-bottom: auto;
   }
 
   h3 {
-    border-bottom: solid 1px var(--clr-white);
+    border-bottom: solid 1px var(--clr-gray);
     font-size: 22px;
     margin-bottom: 20px;
     width: 100%;
     letter-spacing: 6px;
     padding-left: 6px;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
   }
 </style>
