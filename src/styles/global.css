@@ -2,8 +2,9 @@
   --clr-red: #EA4B5E;
   /* primario */
   --clr-blue: #67faf0;
+  --clr-blue2: #34807c;
   /* secundario */
-  --clr-dark: #13161b;
+  --clr-dark: #1a1a1a;
 
   --clr-gray: #5e5e5e;
   /* fuentes, fondos */
@@ -62,10 +63,12 @@ h2 {
   padding: 10px 20px;
   letter-spacing: 6px;
   padding-left: 26px;
+  margin-bottom: 7px;
 }
 
 p {
   color: var(--clr-gray);
+  line-height: 23px;
 }
 
 /* FLEX ROW Y FLEX COLUMN */
@@ -103,8 +106,9 @@ a.boton {
   border: none;
   letter-spacing: 5px;
   padding-left: 55px;
+  background-color: var(--clr-blue);
+  transition: .2s ease;
 }
-
 
 /*responsive para pantallas de escritorio */
 @media (min-width: 768px) {}

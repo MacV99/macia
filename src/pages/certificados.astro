@@ -82,6 +82,12 @@ import Card1 from "../components/Card1.astro";
   </section>
 
   <section class="flex-c">
+    <p>
+      <p>
+        Da clic en el botón de abajo para obtener tu sistema de certificados
+        automatizados.
+      </p>
+    </p>
     <a href="https://tinyurl.com/contacto-macia" target="_blank" class="boton"
       >QUIERO MIS CERTIFICADOS</a
     >
@@ -107,6 +113,10 @@ import Card1 from "../components/Card1.astro";
     color: var(--clr-white);
     width: auto;
     font-size: 14px;
+  }
+
+  a.boton:hover {
+    color: var(--clr-blue);
   }
 
   #demo {
@@ -167,6 +177,11 @@ import Card1 from "../components/Card1.astro";
     cursor: pointer;
     border-radius: 2px;
     height: 40px;
+    transition: 0.2s ease;
+  }
+
+  #demo button:hover {
+    color: var(--clr-blue);
   }
 
   #demo input {
