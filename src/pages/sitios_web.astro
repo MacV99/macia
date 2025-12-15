@@ -9,15 +9,14 @@ import Card1 from "../components/Card1.astro";
 >
   <!-- HERO / INFO -->
   <section id="info" class="flex-c">
-    <a href="https://tinyurl.com/contacto-macia" target="_blank" class="boton"
-      >QUIERO MI SITIO WEB</a
-    >
-
     <p>
       Desarrollamos sitios web rápidos, modernos y optimizados para negocio:
       empresas, profesionales y tiendas. Integramos WhatsApp, pagos, analítica y
       automatizaciones para que tu web trabaje por ti las 24/7.
     </p>
+    <a href="https://tinyurl.com/contacto-macia" target="_blank" class="boton"
+      >QUIERO MI SITIO WEB</a
+    >
   </section>
 
   <!-- PORTAFOLIO (PRUEBA SOCIAL) -->
@@ -84,14 +83,10 @@ import Card1 from "../components/Card1.astro";
       />
     </div>
   </section>
-
-  <!-- PAQUETES -->
 </Layout1>
 
 <style>
-  /* Secciones claras como tu página de certificados */
-  #info,
-  #proceso {
+  #info {
     background-color: #fff;
   }
 
@@ -110,16 +105,12 @@ import Card1 from "../components/Card1.astro";
   a.boton:hover {
     color: var(--clr-blue);
   }
-  a.boton.secundario {
-    background-color: transparent;
-    color: var(--clr-dark);
-    border: 1px solid var(--clr-dark);
-  }
 
   /* Portafolio */
   #portafolio {
     background: var(--clr-white);
   }
+
   .grid-portfolio {
     display: grid;
     grid-template-columns: repeat(2, minmax(240px, 1fr));
@@ -127,6 +118,7 @@ import Card1 from "../components/Card1.astro";
     width: 100%;
     max-width: 900px;
   }
+
   .grid-portfolio .item {
     position: relative;
     border: 1px solid #eaeaea;
@@ -139,6 +131,7 @@ import Card1 from "../components/Card1.astro";
       transform 0.15s ease,
       box-shadow 0.15s ease;
   }
+
   .grid-portfolio .item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -147,70 +140,15 @@ import Card1 from "../components/Card1.astro";
   .grid-portfolio .item h3 {
     margin: 4px 0 6px;
   }
+
   .grid-portfolio .item .link {
     display: inline-block;
     margin-top: 8px;
     font-weight: 600;
     text-decoration: underline;
   }
-  .nota {
-    margin-top: 10px;
-    opacity: 0.8;
-    font-size: 0.95rem;
-  }
 
-  /* Proceso / lista */
-  ul {
-    gap: 10px;
-    text-align: center;
-  }
-  ul b {
-    font-weight: 700;
-  }
-
-  /* Incluye */
-  #incluye .flex-r.wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-
-  /* Pricing */
-  #paquetes {
-    background: #fff;
-  }
-  .grid-pricing {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(240px, 1fr));
-    gap: 16px;
-    width: 100%;
-    max-width: 980px;
-  }
-  .plan {
-    border: 1px solid #eaeaea;
-    background: #fff;
-    border-radius: var(--border-radius);
-    padding: 18px;
-    text-align: center;
-  }
-  .plan h3 {
-    margin-bottom: 6px;
-  }
-  .plan p {
-    margin: 6px 0 10px;
-  }
-  .plan ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 14px;
-  }
-  .plan ul li {
-    margin: 4px 0;
-  }
-  .plan.destacado {
-    border: 1px solid var(--clr-dark);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
+  #beneficios {
+    background-color: var(--clr-white);
   }
 </style>
