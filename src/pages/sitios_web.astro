@@ -131,7 +131,7 @@ import Card1 from "../components/Card1.astro";
     position: relative;
     border: 1px solid #eaeaea;
     padding: 18px;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     background: #fff;
     text-decoration: none;
     color: inherit;
@@ -143,15 +143,7 @@ import Card1 from "../components/Card1.astro";
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   }
-  .grid-portfolio .badge {
-    display: inline-block;
-    font-size: 12px;
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
-    padding: 2px 8px;
-    border-radius: 999px;
-    margin-bottom: 8px;
-  }
+
   .grid-portfolio .item h3 {
     margin: 4px 0 6px;
   }
@@ -198,7 +190,7 @@ import Card1 from "../components/Card1.astro";
   .plan {
     border: 1px solid #eaeaea;
     background: #fff;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     padding: 18px;
     text-align: center;
   }
@@ -220,53 +212,5 @@ import Card1 from "../components/Card1.astro";
     border: 1px solid var(--clr-dark);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     transform: translateY(-4px);
-  }
-
-  /* Contacto */
-  .contacto {
-    background: var(--clr-white);
-  }
-  .cta-btns {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 14px;
-  }
-  .form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    max-width: 720px;
-  }
-  .form input,
-  .form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 15px;
-  }
-  .form textarea {
-    grid-column: 1 / -1;
-  }
-  .form .aviso {
-    grid-column: 1 / -1;
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-
-  /* Responsivo */
-  @media (max-width: 860px) {
-    .grid-portfolio {
-      grid-template-columns: 1fr;
-    }
-    .grid-pricing {
-      grid-template-columns: 1fr;
-    }
-    .form {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

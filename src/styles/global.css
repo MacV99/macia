@@ -4,11 +4,13 @@
   --clr-blue: #67faf0;
   --clr-blue2: #34807c;
   /* secundario */
-  --clr-dark: #1a1a1a;
+  --clr-dark: #071211;
 
   --clr-gray: #5e5e5e;
   /* fuentes, fondos */
   --clr-white: #f4f4f4;
+
+  --border-radius: 5px;
 
 }
 
@@ -29,7 +31,7 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  background-color: var(--clr-);
+  /* background-color: var(--clr-); */
   color: var(--clr-dark);
 }
 
@@ -64,6 +66,7 @@ h2 {
   letter-spacing: 6px;
   padding-left: 26px;
   margin-bottom: 7px;
+  text-transform: uppercase;
 }
 
 p {
@@ -100,7 +103,7 @@ footer>* {
 
 a.boton {
   padding: 20px 50px;
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   font-weight: 700;
   font-size: 14px;
   border: none;
@@ -109,6 +112,3 @@ a.boton {
   background-color: var(--clr-blue);
   transition: .2s ease;
 }
-
-/*responsive para pantallas de escritorio */
-@media (min-width: 768px) {}

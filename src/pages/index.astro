@@ -1,14 +1,133 @@
 ---
 import Layout0 from "../layouts/Layout0.astro";
 import Hero from "../sections/Hero.astro";
-
-import Productos from "../sections/Productos.astro";
 ---
 
 <Layout0 title="Home">
 	<Hero />
 
 	<main>
-		<Productos />
+		<section id="productos" class="flex-c">
+			<h2>PRODUCTOS</h2>
+			<div class="cards flex-r">
+				<a href="/certificados" class="card flex-c">
+					<h3>CERTIFICADOS</h3>
+					<p>
+						Olvídate del trabajo manual y de perder tiempo creando documentos
+						uno por uno. Con nuestro sistema inteligente de generación de
+						certificados podrás diseñar, personalizar y entregar certificados
+						profesionales en segundos. Todo queda organizado y automatizado,
+						permitiéndote enfocarte en hacer crecer tu negocio sin
+						complicaciones.
+					</p>
+				</a>
+
+				<a href="/e_learning" class="card flex-c">
+					<h3>E-LEARNING</h3>
+					<p>
+						Transforma tu conocimiento en ingresos reales a través de un campus
+						online moderno, escalable y totalmente automatizado. Crea cursos
+						completos, administra estudiantes, certifica avances y ofrece una
+						experiencia educativa profesional sin depender de plataformas
+						externas. Todo tu contenido, procesos y ventas centralizados en un
+						mismo sistema.
+					</p>
+				</a>
+
+				<a href="/sitios_web" class="card flex-c">
+					<h3>PAGINAS WEB</h3>
+					<p>
+						Impulsa tu marca con una presencia digital potente, optimizada y
+						diseñada para vender por ti las 24/7. Creamos sitios web modernos,
+						rápidos y estratégicos que conectan con tus clientes, muestran tu
+						propuesta de valor y automatizan procesos clave como contactos,
+						reservas, pagos o seguimiento. Tu negocio en línea, funcionando
+						incluso cuando no estás.
+					</p>
+				</a>
+			</div>
+		</section>
+
+		<section id="team" class="flex-c">
+			<h2>nuestro equipo</h2>
+			<div class="flex-r">
+				<div class="card flex-c">
+					<img src="../img/team/miguel-cuellar.jpg" alt="Miguel Cuellar" />
+					<h3>Miguel Cuellar</h3>
+				</div>
+				<div class="card flex-c">
+					<img src="../img/team/miguel-camacho.jpg" alt="Miguel Camacho" />
+					<h3>Miguel Camacho</h3>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout0>
+
+<style>
+	#productos .cards {
+		flex-wrap: wrap;
+		gap: 30px;
+		align-items: stretch;
+	}
+
+	#productos .card {
+		background-color: var(--clr-white);
+		color: var(--clr-dark);
+		padding: 40px 30px;
+		border-radius: var(--border-radius);
+		max-width: 310px;
+		border: solid 1px #ddd;
+		transition: all 0.2s ease;
+	}
+
+	#productos .card:hover {
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transform: translateY(0px);
+	}
+
+	#productos .cards p {
+		color: var(--clr-gray);
+		text-align: justify;
+		margin-bottom: auto;
+	}
+
+	#productos h3 {
+		border-bottom: solid 1px var(--clr-gray);
+		font-size: 22px;
+		margin-bottom: 20px;
+		width: 100%;
+		letter-spacing: 6px;
+		padding-left: 6px;
+		padding-bottom: 4px;
+	}
+
+	#team {
+		background-color: var(--clr-white);
+	}
+
+	#team > div.flex-r {
+		gap: 20px;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	#team .card {
+		background-color: #fff;
+		width: 100%;
+		max-width: 320px;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+
+	#team .card img {
+		width: 100%;
+		height: 370px;
+		object-fit: cover;
+	}
+
+	#team .card h3 {
+		padding: 10px 0;
+		text-transform: uppercase;
+	}
+</style>

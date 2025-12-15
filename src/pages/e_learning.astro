@@ -196,7 +196,7 @@ import Card1 from "../components/Card1.astro";
   .plan {
     border: 1px solid #eaeaea;
     background: #fff;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     padding: 18px;
     text-align: center;
   }
@@ -238,49 +238,4 @@ import Card1 from "../components/Card1.astro";
     width: 100%;
     max-width: 720px;
   }
-  .form input,
-  .form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 15px;
-  }
-  .form textarea {
-    grid-column: 1 / -1;
-  }
-  .form .aviso {
-    grid-column: 1 / -1;
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-
-  /* Responsivo */
-  @media (max-width: 860px) {
-    .grid-portfolio {
-      grid-template-columns: 1fr;
-    }
-    .grid-pricing {
-      grid-template-columns: 1fr;
-    }
-    .form {
-      grid-template-columns: 1fr;
-    }
-  }
 </style>
-
-<script is:inline>
-  // Handler simple para abrir WhatsApp con los datos del formulario
-  document.getElementById("btn-enviar")?.addEventListener("click", () => {
-    const form = document.querySelector(".form");
-    const data = Object.fromEntries(new FormData(form).entries());
-    const msg = encodeURIComponent(
-      `Hola, Miguel. Quiero lanzar un campus e-learning.\n\n` +
-        `Nombre: ${data.nombre || ""}\n` +
-        `Email: ${data.email || ""}\n` +
-        `WhatsApp: ${data.telefono || ""}\n` +
-        `Qué necesito: ${data.mensaje || ""}`,
-    );
-    window.open(`https://wa.me/573000000000?text=${msg}`, "_blank");
-  });
-</script>
