@@ -6,6 +6,12 @@
 </section>
 
 <style>
+  @keyframes fade {
+    from {
+      background-color: rgb(0, 0, 0);
+    }
+  }
+
   section {
     width: 100%;
     height: 100vh;
@@ -17,6 +23,7 @@
     background-color: rgba(0, 0, 0, 0.9);
     background-size: cover;
     gap: 60px;
+    animation: fade 1.3s ease-in forwards;
   }
 
   img {

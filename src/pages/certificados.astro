@@ -170,10 +170,6 @@ import Card1 from "../components/Card1.astro";
     transition: 0.2s ease;
   }
 
-  #demo button:hover {
-    background-color: var(--clr-dark);
-  }
-
   #demo input {
     padding: 10px 15px;
     width: 100%;
@@ -193,6 +189,7 @@ import Card1 from "../components/Card1.astro";
   /* HOVER EFFECTS - Solo en dispositivos con hover */
   @media (hover: hover) {
     #demo button:hover {
+      background-color: var(--clr-dark);
       color: var(--clr-blue);
     }
   }
