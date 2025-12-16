@@ -107,17 +107,6 @@ import Card1 from "../components/Card1.astro";
     max-width: 600px;
   }
 
-  a.boton {
-    background-color: var(--clr-dark);
-    color: var(--clr-white);
-    width: auto;
-    font-size: 14px;
-  }
-
-  a.boton:hover {
-    background-color: #000;
-  }
-
   #demo {
     background-image: url("../img/hero-bg.jpg");
     background-attachment: fixed;
@@ -170,7 +159,7 @@ import Card1 from "../components/Card1.astro";
   }
 
   #demo button {
-    background-color: var(--clr-dark);
+    background-color: var(--clr-dark2);
     color: var(--clr-white);
     border: solid 1px #ffffff51;
     padding: 10px 20px;
@@ -182,7 +171,7 @@ import Card1 from "../components/Card1.astro";
   }
 
   #demo button:hover {
-    color: var(--clr-blue);
+    background-color: var(--clr-dark);
   }
 
   #demo input {
@@ -202,7 +191,8 @@ import Card1 from "../components/Card1.astro";
   }
 </style>
 
-<script is:inline>
+<script>
+  //@ts-nocheck
   const SHEET_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGbdgpqn5z5DHoG_UPH0OTWHT4Bc3Nf6yp2QqcxSv0va44lhgnSGUzO2SaYJ5P_iPUrBPPo3s_5ylA/pub?output=csv"; // reemplaza aquí
   const PLANTILLA_SRC = "../img/certificado.jpg";
