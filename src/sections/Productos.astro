@@ -54,11 +54,6 @@
     transition: all 0.2s ease;
   }
 
-  .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(0px);
-  }
-
   .cards p {
     color: var(--clr-gray);
     text-align: justify;
@@ -73,5 +68,13 @@
     letter-spacing: 6px;
     padding-left: 6px;
     padding-bottom: 4px;
+  }
+
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
   }
 </style>

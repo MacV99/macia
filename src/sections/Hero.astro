@@ -31,7 +31,10 @@
     border: solid 1px var(--clr-blue400);
   }
 
-  a.boton:hover {
-    background-color: var(--clr-blue2);
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    a.boton:hover {
+      background-color: var(--clr-blue2);
+    }
   }
 </style>

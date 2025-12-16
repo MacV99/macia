@@ -61,7 +61,7 @@ import Hero from "../sections/Hero.astro";
 
 		<section id="team" class="flex-c">
 			<h2>nuestro equipo</h2>
-			<div class="flex-r">
+			<div class="flex-r list-team">
 				<div class="card flex-c">
 					<div class="overimg">
 						<img src="../img/team/miguel-cuellar.jpg" alt="Miguel Cuellar" />
@@ -104,10 +104,6 @@ import Hero from "../sections/Hero.astro";
 		max-width: 310px;
 		border: solid 1px var(--clr-border);
 		transition: all 0.2s ease;
-	}
-
-	#productos .card:hover {
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	}
 
 	#productos .cards p {
@@ -158,14 +154,25 @@ import Hero from "../sections/Hero.astro";
 		margin-top: -38px;
 	}
 
-	#team .card img:hover {
-		transform: scale(1.05);
-	}
-
 	#team .card h3 {
 		padding: 15px 0;
 		font-size: 1rem;
 		text-transform: uppercase;
 		letter-spacing: 2px;
+	}
+
+	/* HOVER EFFECTS - Solo en dispositivos con hover */
+	@media (hover: hover) {
+		#productos .card:hover {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		#team .card img:hover {
+			transform: scale(1.05);
+		}
+
+		#productos .cards:hover .card:not(:hover) {
+			filter: opacity(0.7);
+		}
 	}
 </style>

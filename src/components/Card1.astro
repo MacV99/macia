@@ -24,4 +24,11 @@ const { iconClass, title, description } = Astro.props;
   h3 {
     text-transform: uppercase;
   }
+
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    div:hover {
+      transform: translateY(-2px);
+    }
+  }
 </style>

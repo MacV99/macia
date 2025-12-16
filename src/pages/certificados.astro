@@ -189,6 +189,13 @@ import Card1 from "../components/Card1.astro";
     gap: 10px;
     text-align: center;
   }
+
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    #demo button:hover {
+      color: var(--clr-blue);
+    }
+  }
 </style>
 
 <script>

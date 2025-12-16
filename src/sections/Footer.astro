@@ -77,10 +77,6 @@
     transition: 0.2s ease;
   }
 
-  .follow i:hover {
-    color: var(--clr-blue);
-  }
-
   .politica_datos {
     color: var(--clr-white);
     text-decoration: underline;
@@ -88,7 +84,14 @@
     transition: 0.2s ease;
   }
 
-  .politica_datos:hover {
-    color: var(--clr-blue);
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    .follow i:hover {
+      color: var(--clr-blue);
+    }
+
+    .politica_datos:hover {
+      color: var(--clr-blue);
+    }
   }
 </style>

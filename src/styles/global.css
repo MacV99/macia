@@ -1,5 +1,4 @@
 :root {
-  --clr-red: #EA4B5E;
   /* primario */
   --clr-blue: #67faf0;
   --clr-blue2: #93fff8;
@@ -16,7 +15,7 @@
   --clr-text: #636363;
   --clr-border: #ddd;
   /* fuentes, fondos */
-  --clr-white: #f9f9f9;
+  --clr-white: #f2f2f2;
 
   --border-radius: 5px;
 
@@ -127,6 +126,9 @@ a.boton {
   color: var(--clr-blue950);
 }
 
-a.boton:hover {
-  background-color: var(--clr-blue2);
+/* HOVER EFFECTS - Solo en dispositivos con hover */
+@media (hover: hover) {
+  a.boton:hover {
+    background-color: var(--clr-blue2);
+  }
 }

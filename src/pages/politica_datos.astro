@@ -149,8 +149,11 @@ import Hero from "../sections/Hero.astro";
     text-decoration: none;
   }
 
-  .politica-datos a:hover {
-    text-decoration: underline;
+  /* HOVER EFFECTS - Solo en dispositivos con hover */
+  @media (hover: hover) {
+    .politica-datos a:hover {
+      text-decoration: underline;
+    }
   }
 
   /* RESPONSIVE */
