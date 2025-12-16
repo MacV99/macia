@@ -23,6 +23,9 @@
     background-color: rgba(0, 0, 0, 0.9);
     background-size: cover;
     gap: 60px;
+  }
+
+  section.animate {
     animation: fade 1.3s ease-in forwards;
   }
 
@@ -45,3 +48,18 @@
     }
   }
 </style>
+
+<script>
+  // Detectar si es la primera carga directo a esta página
+  const isFirstVisit = !sessionStorage.getItem("visited-hero");
+
+  if (isFirstVisit) {
+    // Primera carga: añadir clase para activar animación
+    const section = document.querySelector("section.flex-c");
+    if (section) {
+      section.classList.add("animate");
+    }
+    // Marcar que ya visitamos en esta sesión
+    sessionStorage.setItem("visited-hero", "true");
+  }
+</script>
